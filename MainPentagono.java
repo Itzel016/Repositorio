@@ -38,7 +38,7 @@ class Pentagono extends FiguraGeometrica {
 
 public class MainPentagono {
     public static void main(String[] args) {
-        Pentagono pentagono = new Pentagono("Pentágono", 5.0);
+        Pentagono pentagono = new Pentagono("Pentágono", 25.0);
 
         System.out.println("Nombre de la figura: " + pentagono.nombre);
         System.out.println("Perímetro del pentágono: " + pentagono.calcularPerimetro());
