@@ -1,14 +1,19 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        try {
-            Pentagono pentagono = new Pentagono("Pentágono Regular", 0.0);
-            System.out.println("Nombre de la figura: " + pentagono.nombre);
-            System.out.println("Perímetro del pentágono: " + pentagono.calcularPerimetro());
-            System.out.println("Área del pentágono: " + pentagono.calcularArea());
-        } catch (IllegalArgumentException e) {
+        System.out.println("Calculadora de Área y Perímetro de un Pentágono");
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Ingresa la longitud de un lado del pentágono: ");
+            double lado = scanner.nextDouble();
+
+            FigurasGeometricas pentagono = new Pentagono(lado);
+
+            System.out.println("El perímetro del pentágono es: " + pentagono.calcularPerimetro());
+            System.out.println("El área del pentágono es: " + pentagono.calcularArea());
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        } catch (ArithmeticException e) {
-            System.out.println("Error de cálculo del área: " + e.getMessage());
         }
     }
 }

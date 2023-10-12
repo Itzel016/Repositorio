@@ -1,29 +1,19 @@
-class Pentagono extends FigurasGeometricas {
+public class Pentagono implements FigurasGeometricas {
     private double lado;
 
-    public Pentagono(String nombre, double lado) {
-        super(nombre);
+    public Pentagono(double lado) {
         this.lado = lado;
     }
 
     @Override
     public double calcularArea() {
-        double apotema;
-        try {
-            apotema = lado / (2 * Math.tan(Math.PI / 5));
-        } catch (ArithmeticException e) {
-            throw new ArithmeticException("Error en el cálculo del área: " + e.getMessage());
-        }
-
+        double apotema = lado / (2 * Math.tan(Math.PI / 5));
         double perimetro = calcularPerimetro();
-        double area = (perimetro * apotema) / 2;
-        return area;
+        return (perimetro * apotema) / 2;
     }
-    
+
+    @Override
     public double calcularPerimetro() {
-        if (lado <= 0) {
-            throw new IllegalArgumentException("El lado del pentágono debe ser mayor que cero.");
-        }
         return 5 * lado;
     }
 }
